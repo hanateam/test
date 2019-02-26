@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="ZCV_RR_AUDITCALLS" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation">
+  <origin/>
+  <descriptions defaultDescription="ZCV_RR_AUDITCALLS"/>
+  <metadata changedAt="2019-02-12 12:05:33.765"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="34"/>
+  <dataSources>
+    <DataSource id="Z_RR_STG_AUDITCALLS" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="HERES" columnObjectName="Z_RR_STG_AUDITCALLS"/>
+    </DataSource>
+    <DataSource id="Z_RR_STG_LOGINSUMMARY" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="HERES" columnObjectName="Z_RR_STG_LOGINSUMMARY"/>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="SITE"/>
+        <viewAttribute id="DRSROWID"/>
+        <viewAttribute id="DEPARTMENT"/>
+        <viewAttribute id="COMPANY"/>
+        <viewAttribute id="ACTION"/>
+        <viewAttribute id="QUEUENUMBER"/>
+        <viewAttribute id="QUEUENAME"/>
+        <viewAttribute id="CALLDATETIME"/>
+        <viewAttribute id="ISQUEUECALL"/>
+        <viewAttribute id="SEQUENCE"/>
+        <viewAttribute id="RINGTIME"/>
+        <viewAttribute id="WAITTIME"/>
+        <viewAttribute id="DELAY"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Z_RR_STG_AUDITCALLS">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SITE" source="SITE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DRSROWID" source="DRSROWID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DEPARTMENT" source="DEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="COMPANY" source="COMPANY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ACTION" source="ACTION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUEUENUMBER" source="QUEUENUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUEUENAME" source="QUEUENAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CALLDATETIME" source="CALLDATETIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISQUEUECALL" source="ISQUEUECALL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEQUENCE" source="SEQUENCE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RINGTIME" source="RINGTIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAITTIME" source="WAITTIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DELAY" source="DELAY"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="SITE"/>
+        <viewAttribute id="DRSROWID"/>
+        <viewAttribute id="AGENT_FIRST_NAME"/>
+        <viewAttribute id="AGENT_LAST_NAME"/>
+        <viewAttribute id="AGENTID"/>
+        <viewAttribute id="LOGINSUMMARYDATE"/>
+        <viewAttribute id="LOGINDURATION"/>
+        <viewAttribute id="BREAKDURATION"/>
+        <viewAttribute id="WORKTIMEDURATION"/>
+        <viewAttribute id="IDLETIME"/>
+        <viewAttribute id="QUEUECALLCOUNT"/>
+        <viewAttribute id="DIRECTCALLCOUNT"/>
+        <viewAttribute id="QUEUECALLDURATION"/>
+        <viewAttribute id="QUEUECALLRING"/>
+        <viewAttribute id="DIRECTCALLRING"/>
+        <viewAttribute id="DIRECTCALLDURATION"/>
+        <viewAttribute id="OUTBOUNDCALLCOUNT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Z_RR_STG_LOGINSUMMARY">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SITE" source="SITE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DRSROWID" source="DRSROWID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AGENT_FIRST_NAME" source="AGENT_FIRST_NAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AGENT_LAST_NAME" source="AGENT_LAST_NAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AGENTID" source="AGENTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LOGINSUMMARYDATE" source="LOGINSUMMARYDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LOGINDURATION" source="LOGINDURATION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BREAKDURATION" source="BREAKDURATION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WORKTIMEDURATION" source="WORKTIMEDURATION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IDLETIME" source="IDLETIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUEUECALLCOUNT" source="QUEUECALLCOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DIRECTCALLCOUNT" source="DIRECTCALLCOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUEUECALLDURATION" source="QUEUECALLDURATION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUEUECALLRING" source="QUEUECALLRING"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DIRECTCALLRING" source="DIRECTCALLRING"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DIRECTCALLDURATION" source="DIRECTCALLDURATION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OUTBOUNDCALLCOUNT" source="OUTBOUNDCALLCOUNT"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinOrder="OUTSIDE_IN" joinType="inner">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="SITE"/>
+        <viewAttribute id="DRSROWID"/>
+        <viewAttribute id="DEPARTMENT"/>
+        <viewAttribute id="COMPANY"/>
+        <viewAttribute id="ACTION"/>
+        <viewAttribute id="QUEUENUMBER"/>
+        <viewAttribute id="QUEUENAME"/>
+        <viewAttribute id="CALLDATETIME"/>
+        <viewAttribute id="ISQUEUECALL"/>
+        <viewAttribute id="SEQUENCE"/>
+        <viewAttribute id="RINGTIME"/>
+        <viewAttribute id="WAITTIME"/>
+        <viewAttribute id="DELAY"/>
+        <viewAttribute id="SITE_1"/>
+        <viewAttribute id="DRSROWID_1"/>
+        <viewAttribute id="AGENT_FIRST_NAME"/>
+        <viewAttribute id="AGENT_LAST_NAME"/>
+        <viewAttribute id="AGENTID"/>
+        <viewAttribute id="LOGINSUMMARYDATE"/>
+        <viewAttribute id="LOGINDURATION"/>
+        <viewAttribute id="BREAKDURATION"/>
+        <viewAttribute id="WORKTIMEDURATION"/>
+        <viewAttribute id="IDLETIME"/>
+        <viewAttribute id="QUEUECALLCOUNT"/>
+        <viewAttribute id="DIRECTCALLCOUNT"/>
+        <viewAttribute id="QUEUECALLDURATION"/>
+        <viewAttribute id="QUEUECALLRING"/>
+        <viewAttribute id="DIRECTCALLRING"/>
+        <viewAttribute id="DIRECTCALLDURATION"/>
+        <viewAttribute id="OUTBOUNDCALLCOUNT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SITE" source="SITE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DRSROWID" source="DRSROWID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DEPARTMENT" source="DEPARTMENT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="COMPANY" source="COMPANY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ACTION" source="ACTION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUEUENUMBER" source="QUEUENUMBER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUEUENAME" source="QUEUENAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CALLDATETIME" source="CALLDATETIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ISQUEUECALL" source="ISQUEUECALL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEQUENCE" source="SEQUENCE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="RINGTIME" source="RINGTIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WAITTIME" source="WAITTIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DELAY" source="DELAY"/>
+      </input>
+      <input node="#Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="SITE_1" source="SITE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DRSROWID_1" source="DRSROWID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AGENT_FIRST_NAME" source="AGENT_FIRST_NAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AGENT_LAST_NAME" source="AGENT_LAST_NAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="AGENTID" source="AGENTID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LOGINSUMMARYDATE" source="LOGINSUMMARYDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LOGINDURATION" source="LOGINDURATION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BREAKDURATION" source="BREAKDURATION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WORKTIMEDURATION" source="WORKTIMEDURATION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="IDLETIME" source="IDLETIME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUEUECALLCOUNT" source="QUEUECALLCOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DIRECTCALLCOUNT" source="DIRECTCALLCOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUEUECALLDURATION" source="QUEUECALLDURATION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUEUECALLRING" source="QUEUECALLRING"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DIRECTCALLRING" source="DIRECTCALLRING"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DIRECTCALLDURATION" source="DIRECTCALLDURATION"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="OUTBOUNDCALLCOUNT" source="OUTBOUNDCALLCOUNT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SITE" source="SITE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DRSROWID" source="DRSROWID"/>
+      </input>
+      <joinAttribute name="SITE"/>
+      <joinAttribute name="DRSROWID"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Join_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="SITE" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SITE"/>
+        <keyMapping columnObjectName="Join_1" columnName="SITE"/>
+      </attribute>
+      <attribute id="DEPARTMENT" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="DEPARTMENT"/>
+        <keyMapping columnObjectName="Join_1" columnName="DEPARTMENT"/>
+      </attribute>
+      <attribute id="COMPANY" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="COMPANY"/>
+        <keyMapping columnObjectName="Join_1" columnName="COMPANY"/>
+      </attribute>
+      <attribute id="ACTION" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="ACTION"/>
+        <keyMapping columnObjectName="Join_1" columnName="ACTION"/>
+      </attribute>
+      <attribute id="QUEUENUMBER" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="QUEUENUMBER"/>
+        <keyMapping columnObjectName="Join_1" columnName="QUEUENUMBER"/>
+      </attribute>
+      <attribute id="QUEUENAME" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="QUEUENAME"/>
+        <keyMapping columnObjectName="Join_1" columnName="QUEUENAME"/>
+      </attribute>
+      <attribute id="CALLDATETIME" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CALLDATETIME"/>
+        <keyMapping columnObjectName="Join_1" columnName="CALLDATETIME"/>
+      </attribute>
+      <attribute id="SITE_1" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SITE"/>
+        <keyMapping columnObjectName="Join_1" columnName="SITE_1"/>
+      </attribute>
+      <attribute id="AGENT_FIRST_NAME" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="AGENT_FIRST_NAME"/>
+        <keyMapping columnObjectName="Join_1" columnName="AGENT_FIRST_NAME"/>
+      </attribute>
+      <attribute id="AGENT_LAST_NAME" order="17" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="AGENT_LAST_NAME"/>
+        <keyMapping columnObjectName="Join_1" columnName="AGENT_LAST_NAME"/>
+      </attribute>
+      <attribute id="LOGINSUMMARYDATE" order="19" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LOGINSUMMARYDATE"/>
+        <keyMapping columnObjectName="Join_1" columnName="LOGINSUMMARYDATE"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="DRSROWID" order="2" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="DRSROWID"/>
+        <measureMapping columnObjectName="Join_1" columnName="DRSROWID"/>
+      </measure>
+      <measure id="ISQUEUECALL" order="9" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="ISQUEUECALL"/>
+        <measureMapping columnObjectName="Join_1" columnName="ISQUEUECALL"/>
+      </measure>
+      <measure id="SEQUENCE" order="10" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="SEQUENCE"/>
+        <measureMapping columnObjectName="Join_1" columnName="SEQUENCE"/>
+      </measure>
+      <measure id="RINGTIME" order="11" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="RINGTIME"/>
+        <measureMapping columnObjectName="Join_1" columnName="RINGTIME"/>
+      </measure>
+      <measure id="WAITTIME" order="12" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="WAITTIME"/>
+        <measureMapping columnObjectName="Join_1" columnName="WAITTIME"/>
+      </measure>
+      <measure id="DELAY" order="13" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="DELAY"/>
+        <measureMapping columnObjectName="Join_1" columnName="DELAY"/>
+      </measure>
+      <measure id="DRSROWID_1" order="15" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="DRSROWID"/>
+        <measureMapping columnObjectName="Join_1" columnName="DRSROWID_1"/>
+      </measure>
+      <measure id="AGENTID" order="18" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="AGENTID"/>
+        <measureMapping columnObjectName="Join_1" columnName="AGENTID"/>
+      </measure>
+      <measure id="LOGINDURATION" order="20" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="LOGINDURATION"/>
+        <measureMapping columnObjectName="Join_1" columnName="LOGINDURATION"/>
+      </measure>
+      <measure id="BREAKDURATION" order="21" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="BREAKDURATION"/>
+        <measureMapping columnObjectName="Join_1" columnName="BREAKDURATION"/>
+      </measure>
+      <measure id="WORKTIMEDURATION" order="22" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="WORKTIMEDURATION"/>
+        <measureMapping columnObjectName="Join_1" columnName="WORKTIMEDURATION"/>
+      </measure>
+      <measure id="IDLETIME" order="23" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="IDLETIME"/>
+        <measureMapping columnObjectName="Join_1" columnName="IDLETIME"/>
+      </measure>
+      <measure id="QUEUECALLCOUNT" order="24" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="QUEUECALLCOUNT"/>
+        <measureMapping columnObjectName="Join_1" columnName="QUEUECALLCOUNT"/>
+      </measure>
+      <measure id="DIRECTCALLCOUNT" order="25" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="DIRECTCALLCOUNT"/>
+        <measureMapping columnObjectName="Join_1" columnName="DIRECTCALLCOUNT"/>
+      </measure>
+      <measure id="QUEUECALLDURATION" order="26" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="QUEUECALLDURATION"/>
+        <measureMapping columnObjectName="Join_1" columnName="QUEUECALLDURATION"/>
+      </measure>
+      <measure id="QUEUECALLRING" order="27" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="QUEUECALLRING"/>
+        <measureMapping columnObjectName="Join_1" columnName="QUEUECALLRING"/>
+      </measure>
+      <measure id="DIRECTCALLRING" order="28" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="DIRECTCALLRING"/>
+        <measureMapping columnObjectName="Join_1" columnName="DIRECTCALLRING"/>
+      </measure>
+      <measure id="DIRECTCALLDURATION" order="29" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="DIRECTCALLDURATION"/>
+        <measureMapping columnObjectName="Join_1" columnName="DIRECTCALLDURATION"/>
+      </measure>
+      <measure id="OUTBOUNDCALLCOUNT" order="30" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="OUTBOUNDCALLCOUNT"/>
+        <measureMapping columnObjectName="Join_1" columnName="OUTBOUNDCALLCOUNT"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="85"/>
+        <rectangleSize/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="120" y="210"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="400" y="220"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="220" y="150"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>
